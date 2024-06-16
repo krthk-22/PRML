@@ -62,7 +62,7 @@ class PCA():
             axes[q][r].imshow(pc.reshape((28, 28)), cmap='gray')
             axes[q][r].tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
         
-        plt.savefig('Principal Components')
+        plt.savefig('images/Principal Components')
     
     def show_variance_summary(self):
         fig, axes = plt.subplots(1, 3, figsize=(18, 4))
@@ -83,7 +83,7 @@ class PCA():
             axis.set_xlabel(r"$n^{th}$ largest eigen value")
             axis.axvline(x=max_explained, linestyle='--', label="Important eigen values", color='red')
             axis.set_ylabel(y_labels[i])
-        plt.savefig('Variance Summary')
+        plt.savefig('images/Variance Summary')
 
     
     def get_projections(self, data):
@@ -105,7 +105,7 @@ class PCA():
             axes[q][r].imshow(image, cmap='gray')
             axes[q][r].tick_params(bottom=False, left=False, labelleft=False, labelbottom=False)
             axes[q][r].set_xlabel("Image of " + str(i) + " , d = " + str(num_PC))
-        plt.savefig('Reconstructed using ' + str(num_PC))
+        plt.savefig('images/Reconstructed using ' + str(num_PC))
     
 mnist_data = load_dataset('mnist')
 num_images = 100
