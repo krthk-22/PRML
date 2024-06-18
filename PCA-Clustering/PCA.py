@@ -69,8 +69,8 @@ class PCA():
         x = np.linspace(1, 784, 784)
         y = np.array([self.percentage_importance, self.percentage_importance, self.cummulative_percentage])
         y_labels = [r"% variance explained by $n^{th}$ EV", r"% variance explained by $n^{th}$ EV", r"Cummulative % explained till $n^{th}$ EV"]
-        annotate = [str(self.max_explained) + " features", str(max_explained) + " features",
-                    str(round(mnist_pca.cummulative_percentage[max_explained], 2)) + "% Explained\n"  + str(max_explained) + " Features"]
+        annotate = [str(self.max_explained) + " features", str(self.max_explained) + " features",
+                    str(round(self.cummulative_percentage[self.max_explained], 2)) + "% Explained\n"  + str(self.max_explained) + " Features"]
         xy = [(+20, +20), (+20, +20), (-20, -40)]
         for i, axis in enumerate(axes):
             axis.plot(x, y[i])
@@ -81,7 +81,7 @@ class PCA():
                         arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=.5"))
             axis.set_xlim(-5, 785)
             axis.set_xlabel(r"$n^{th}$ largest eigen value")
-            axis.axvline(x=max_explained, linestyle='--', label="Important eigen values", color='red')
+            axis.axvline(x=self.max_explained, linestyle='--', label="Important eigen values", color='red')
             axis.set_ylabel(y_labels[i])
         plt.savefig('images/Variance Summary')
 
