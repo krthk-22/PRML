@@ -105,7 +105,7 @@ class Kernel_PCA():
             axis.axvline(x=self.max_explained, linestyle='--', label="Important eigen values", color='red')
             axis.set_ylabel(y_labels[i])
         save_as =  self.kernel_type + ' Variance Summary ' + str(self.kernel_parameter)
-        plt.savefig('images/' + save_as)
+        plt.savefig('images/Q1' + save_as)
 
     def show_projection_correlation(self):
         fig, axes = plt.subplots(1, 3, figsize = (18, 4))
@@ -117,7 +117,7 @@ class Kernel_PCA():
             axes[j].set_title( self.kernel_type + " Kernel with d = " + str(self.kernel_parameter))
 
         save_as =  self.kernel_type + ' PC correlation ' + str(self.kernel_parameter)
-        plt.savefig('images/' + save_as)
+        plt.savefig('images/Q1' + save_as)
 
 
 
